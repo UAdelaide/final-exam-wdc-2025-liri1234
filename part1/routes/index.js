@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 const db = require('../db');
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+    res.render('index', { title: 'Express' });
 });
 
-router.get('/api/dogs', async function(req, res, next) {
+router.get('/api/dogs', async function (req, res, next) {
     try {
         const [rows] = await db.query(
             'SELECT d.name AS dog_name, d.size, u.username AS owner_username FROM Dogs d JOIN Users u ON d.owner_id = u.user_id'
@@ -17,8 +17,8 @@ router.get('/api/dogs', async function(req, res, next) {
     }
 });
 
-router.get('/api/walkrequests/open',async function(req, res, next) {
-  try {
+router.get('/api/walkrequests/open', async function (req, res, next) {
+    try {
         const [rows] = await db.query(
             'SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username FROM WalkRequests wr JOIN Dogs d ON wr.dog_id = d.dog_id JOIN  Users u ON d.owner_id = u.user_id WHERE wr.status = "open"'
         );
@@ -47,12 +47,12 @@ router.get('/api/walkers/summary', async function (req, res, next) {
             LEFT JOIN WalkRatings ON WalkRatings.walker_id = Users.user_id
             WHERE Users.role = 'walker'
             GROUP BY Users.user_id;`
-            );
+        );
 
         res.send(rows);
-        } catch (err) {
+    } catch (err) {
         res.sendStatus(500);
-         }
+    }
 });
 
 module.exports = router;
