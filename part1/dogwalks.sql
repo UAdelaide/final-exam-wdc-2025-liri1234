@@ -69,8 +69,8 @@ VALUES
 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Rocky', 'large'),
 ((SELECT user_id FROM Users WHERE username = 'liridas'), 'Cookies', 'medium'),
-((SELECT user_id FROM Users WHERE username = 'jenna123'), '', 'medium'),
-((SELECT user_id FROM Users WHERE username = 'carol123'), 'Milo', 'small');
+((SELECT user_id FROM Users WHERE username = 'jenna123'), 'Bull', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'carol123'), 'Sweety', 'small');
 
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 VALUES
