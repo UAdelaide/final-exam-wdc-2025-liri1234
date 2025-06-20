@@ -166,6 +166,7 @@
 
         onMounted(() => {
           loadWalks();
+          loadMyDogs();
         });
 
         return {
@@ -173,6 +174,7 @@
           walks,
           message,
           error,
+          myDogs, //Added
           logout, //Made logout available to template
           submitWalkRequest
         };
