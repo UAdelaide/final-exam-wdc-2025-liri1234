@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DogWalk!!! 😱</title>
+  <script src="https://unpkg.com/vue@3"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ff69b4, #00ffff);
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 24px;
+      color: yellow;
+      cursor: url('https://www.rw-designer.com/icon-image/17796-256x256x32.png'), auto;
+      animation: spinbg 5s linear infinite;
+    }
+
+    @keyframes spinbg {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .container {
+      margin: 50px auto;
+      border: 5px dashed red;
+      padding: 40px;
+      width: 95%;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Papyrus', fantasy;
+      font-size: 48px;
+      color: lime;
+    }
+
+    .step-instruction {
+      font-size: 12px;
+      font-style: italic;
+      font-family: monospace;
+      color: lightblue;
+      background: black;
+      padding: 10px;
+      border: dotted green 3px;
+    }
+
+    .dog-section {
+      height: 150px;
+      overflow-y: scroll;
+      border: 2px solid orange;
+      margin-top: 40px;
+    }
+
+    .dog-pic {
+      width: 100%;
+      border: 10px double green;
+    }
+
+    button {
+      padding: 20px;
+      background: yellow;
+      color: red;
+      font-size: 20px;
+      border-radius: 50px;
+      transition: all 0.1s ease-in-out;
+    }
+
+    button:hover {
+      background: cyan;
+      transform: scale(1.5);
+    }
+
+    #extra-info {
+      display: none;
+    }
+
+    .popup:hover::after {
+      content: "🎉 Surprise!";
+      position: absolute;
+      background: purple;
+      color: white;
+      padding: 5px;
+      font-size: 18px;
+    }
+
+    .flashing {
+      animation: flash 1s infinite;
+    }
+
+    @keyframes flash {
+      0% { background-color: red; }
+      50% { background-color: yellow; }
+      100% { background-color: red; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app" role="main">
+    <div class="container" role="alert">
+      <h1 class="flashing">DOG WALKING SERVICE!!!!!! 🐕🐾🌪️🌈</h1>
+      <p class="step-instruction">Step 1: Maybe click something if you want, or not.
+        Step 2: Click 3x and then something else might happen 🎲</p>
+
+      <button @click="clickCount++">Maybe Click?</button>
+      <button v-if="clickCount >= 3" @click="getDogImage" aria-label="">Load</button>
+
+      <div class="dog-section" role="img">
+        <div v-if="dogImage">
+          <img :src="dogImage" class="dog-pic popup">
+          <p>Meet Bruno. Or maybe that’s not his name. He’s random. 🐶🎈</p>
+          <div id="extra-info">Location: Outer Space • Size: ??? • Rating: ∞</div>
+        </div>
+      </div>
+
+      <marquee behavior="alternate" direction="right" scrollamount="20">
+        🚨🚨 WALK A DOG NOW OR ELSE 🚨🚨
+      </marquee>
+    </div>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          dogImage: '',
+          clickCount: 0
+        };
+      },
+      methods: {
+        async getDogImage() {
+          const res = await fetch("https://dog.ceo/api/breeds/image/random");
+          const data = await res.json();
+          this.dogImage = data.message;
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
