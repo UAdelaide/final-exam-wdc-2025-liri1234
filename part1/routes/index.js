@@ -34,5 +34,9 @@ router.get('/api/walkers/summary', async function (req, res, next) {
         const [rows] = await db.query(`SELECT
             Users.username AS walker_username,
             COUNT(WalkRatings.rating_id) AS total_ratings,
-            
+            ROUND(AVG(WalkRatings.rating),1) AS average_rating,
+
+            (SELECT COUNT(*)
+            FROM WalkRequests
+            JOIN WalkApplications ON WalkApplications.request_id =
 module.exports = router;
