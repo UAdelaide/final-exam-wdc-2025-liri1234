@@ -83,5 +83,11 @@ try {
       INNER JOIN Users ON Users.user_id = Dogs.owner_id
       WHERE Dogs.owner_id = ?
     `, [req.session.user.user_id]);
-    
+     res.json(rows);
+  } catch (error) {
+    console.error('SQL Error:', error);
+    res.status(500).json({ error: 'Failed to fetch dogs' });
+  }
+});
+
 module.exports = router;
