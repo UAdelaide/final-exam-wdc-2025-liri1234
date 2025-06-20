@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-light">
-    div id="app" class="container py-5">
+    <div id="app" class="container py-5">
     <h2 class="mb-4 text-primary">Welcome to the Dog Walking Service!</h2>
 
      <form @submit.prevent="login">
@@ -23,6 +23,11 @@
         <label class="form-label">Password</label>
         <input type="password" v-model="password" class="form-control" required />
       </div>
+      <button type="submit" class="btn btn-primary">Log In</button>
+
+      <p v-if="error" class="text-danger mt-3">{{ error }}</p>
+    </form>
+  </div>
 
 
 </body>
