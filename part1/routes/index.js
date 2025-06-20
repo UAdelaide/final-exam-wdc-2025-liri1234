@@ -28,6 +28,7 @@ router.get('/api/walkrequests/open',async function(req, res, next) {
         res.sendStatus(500);
     }
 });
+
 router.get('/api/walkers/summary', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
