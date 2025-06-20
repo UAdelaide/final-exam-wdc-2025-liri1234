@@ -50,5 +50,7 @@ router.get('/api/walkers/summary', async function (req, res, next) {
             );
 
         res.send(rows);
+        } catch (err) {
+        res.sendStatus(500);
         
 module.exports = router;
