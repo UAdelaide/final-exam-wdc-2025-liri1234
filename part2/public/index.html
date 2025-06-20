@@ -28,31 +28,7 @@
       <button type="submit" class="btn btn-primary">Log In</button>
       <p v-if="error" class="text-danger mt-3">{{ error }}</p>
     </form>
-    <div>
-      <h2 class="mt-5 mb-3">All Registered Dogs</h2>
-       <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Dog ID</th>
-          <th>Name</th>
-          <th>Size</th>
-          <th>Owner ID</th>
-          <th>Photo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="dog in dogs" :key="dog.dog_id">
-          <td>{{ dog.dog_id }}</td>
-          <td>{{ dog.name }}</td>
-          <td>{{ dog.size }}</td>
-          <td>{{ dog.owner_id }}</td>
-          <td>
-            <img :src="dog.photo" alt="dog photo" width="80" />
-          </td>
-          </tr>
-      </tbody>
-    </table>
-    </div>
+   
     </div>
     <script>
       const { createApp } = Vue;
