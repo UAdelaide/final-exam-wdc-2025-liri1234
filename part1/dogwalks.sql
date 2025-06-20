@@ -60,7 +60,7 @@ VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
 ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
 ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-('liridas', 'david@example.com', 'hashed000', 'walker'),
+('liridas', 'liri@example.com', 'hashed021', 'walker'),
 ('emily123', 'emily@example.com', 'hashed999', 'owner');
 
 -- Insert 5 dogs using subqueries to find owner_id
