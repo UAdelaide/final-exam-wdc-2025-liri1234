@@ -94,6 +94,10 @@
           } else {
             alert('Logout failed.');
           }
+          } catch (err) {
+          alert('Error during logout.');
+        }
+      }
 
         onMounted(() => {
           loadWalkRequests();
@@ -103,6 +107,7 @@
           walks,
           message,
           error,
+          logout,
           applyToWalk
         };
 
