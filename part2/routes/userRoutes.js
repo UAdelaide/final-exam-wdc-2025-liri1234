@@ -70,7 +70,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
-//
+// GET /api/dogs/mine - get dogs owned by the logged-in user
 router.get('/dogs', async (req, res) => {
 
 module.exports = router;
