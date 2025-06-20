@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+import const db 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
