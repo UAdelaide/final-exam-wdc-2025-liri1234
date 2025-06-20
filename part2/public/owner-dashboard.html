@@ -166,7 +166,7 @@
 
         onMounted(() => {
           loadWalks();
-          loadMyDogs();
+          loadMyDogs();//fetch only the current owner's dogs
         });
 
         return {
