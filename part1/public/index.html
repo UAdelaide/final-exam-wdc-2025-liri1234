@@ -10,3 +10,52 @@
     <p>Welcome to Express</p>
 </body>
 </html>
+
+
+
+
+<body>
+  <div id="app" role="main">
+    <div class="container" role="alert">
+      <h1 class="flashing">DOG WALKING SERVICE!!!!!! 🐕🐾🌪️🌈</h1>
+      <p class="step-instruction">Step 1: Maybe click something if you want, or not.
+        Step 2: Click 3x and then something else might happen 🎲</p>
+
+      <button @click="clickCount++">Maybe Click?</button>
+      <button v-if="clickCount >= 3" @click="getDogImage" aria-label="">Load</button>
+
+      <div class="dog-section" role="img">
+        <div v-if="dogImage">
+          <img :src="dogImage" class="dog-pic popup">
+          <p>Meet Bruno. Or maybe that’s not his name. He’s random. 🐶🎈</p>
+          <div id="extra-info">Location: Outer Space • Size: ??? • Rating: ∞</div>
+        </div>
+      </div>
+
+      <marquee behavior="alternate" direction="right" scrollamount="20">
+        🚨🚨 WALK A DOG NOW OR ELSE 🚨🚨
+      </marquee>
+    </div>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          dogImage: '',
+          clickCount: 0
+        };
+      },
+      methods: {
+        async getDogImage() {
+          const res = await fetch("https://dog.ceo/api/breeds/image/random");
+          const data = await res.json();
+          this.dogImage = data.message;
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
