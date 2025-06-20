@@ -61,7 +61,7 @@ VALUES
 ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
 ('carol123', 'carol@example.com', 'hashed789', 'owner'),
 ('liridas', 'liri@example.com', 'hashed021', 'walker'),
-('emily123', 'emily@example.com', 'hashed999', 'owner');
+('emily123', 'emily@example.com', 'hashed569', 'owner');
 
 -- Insert 5 dogs using subqueries to find owner_id
 INSERT INTO Dogs (owner_id, name, size)
