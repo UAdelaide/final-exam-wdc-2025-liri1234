@@ -83,5 +83,5 @@ try {
       INNER JOIN Users ON Users.user_id = Dogs.owner_id
       WHERE Dogs.owner_id = ?
     `, [req.session.user.user_id]);
-
+    
 module.exports = router;
