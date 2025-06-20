@@ -70,7 +70,10 @@ router.post('/logout', (req, res) => {
   });
 });
 
-// GET /api/dogs/mine - get dogs owned by the logged-in user
+// GET dogs owned by the logged-in user
 router.get('/dogs', async (req, res) => {
+if (!req.session.user || !req.session.user.user_id) {
+    return res.status(401).json({ error: 'Unauthorized' });
+}
 
 module.exports = router;
