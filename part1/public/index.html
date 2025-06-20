@@ -100,8 +100,8 @@
       <p class="step-instruction">Step 1: Maybe click something if you want, or not.
         Step 2: Click 3x and then something else might happen 🎲</p>
 
-      <button @click="clickCount++">Maybe Click?</button>
-      <button v-if="clickCount >= 3" @click="getDogImage" aria-label="">Load</button>
+ <button @click="getDogImage" aria-label="">Show Dog of the Day</button>
+
 
       <div class="dog-section" role="img">
         <div v-if="dogImage">
