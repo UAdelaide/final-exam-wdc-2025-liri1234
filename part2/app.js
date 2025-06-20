@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 require('dotenv').config();
 
@@ -14,6 +15,11 @@ const userRoutes = require('./routes/userRoutes');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
+app.use(session({
+  secret: 'dogwalker_secret', // 🔐 change this to a secure value in production
+  resave: false,
+  saveUninitialized: true
+}));
 app.get('/', (req, res) => {
   res.redirect('/login.html');
 });
