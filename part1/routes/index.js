@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/api/dogs', function(req, res, next) {
+router.get('/api/dogs', aysnc function(req, res, next) {
  try {
         const [rows] = await db.query(
             'SELECT d.name AS dog_name, d.size, u.username AS owner_username FROM Dogs d JOIN Users u ON d.owner_id = u.user_id'
@@ -17,6 +17,7 @@ router.get('/api/dogs', function(req, res, next) {
         res.sendStatus(500);
     }
 });
+
 router.get('/api/walkrequests/open', function(req, res, next) {
   try {
         const [rows] = await db.query(
