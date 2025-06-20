@@ -29,7 +29,6 @@ router.get('/api/walkrequests/open',async function(req, res, next) {
     }
 });
 
-router.get('/api/walkers/summary', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/api/walkers/summary', async function (req, res, next) {
+    
 module.exports = router;
