@@ -44,6 +44,11 @@ router.get('/api/walkers/summary', async function (req, res, next) {
             Users.user_id) AS completed_walks
 
             From Users
+            LEFT JOIN WalkRatings ON WalkRatings.walker_id = Users.user_id
+            WHERE Users.role = 'walker'
+            GROUP BY Users.user_id;`
+            );
 
-            
+        res.send(rows);
+        
 module.exports = router;
