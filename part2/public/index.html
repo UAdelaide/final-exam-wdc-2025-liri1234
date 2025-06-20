@@ -78,27 +78,6 @@
               });
 
               const data = await res.json();
-          if (res.ok) {
-            this.loggedIn = true;
-            this.fetchDogs(); // 👈 fetch dogs after login
-          } else {
-            this.error = data.error;
-          }
-        } catch (err) {
-          this.error = 'Login failed.';
-        }
-      },
-      async fetchDogs() {
-        try {
-          const res = await fetch('/api/dogs');
-          const data = await res.json();
-          this.dogs = data;
-        } catch (err) {
-          console.error('Error fetching dogs:', err);
-        }
-        
-
-              const data = await res.json();
               if (res.ok) {
                 if (data.role === 'owner') {
                   window.location.href = 'owner-dashboard.html';
