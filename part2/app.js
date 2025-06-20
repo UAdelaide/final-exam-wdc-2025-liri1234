@@ -22,9 +22,6 @@ app.use(session({
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
-app.get('/', (req, res) => {
-  res.redirect('/login.html');//
-});
 
 
 // Export the app instead of listening here
