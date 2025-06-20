@@ -39,4 +39,7 @@ router.get('/api/walkers/summary', async function (req, res, next) {
             (SELECT COUNT(*)
             FROM WalkRequests
             JOIN WalkApplications ON WalkApplications.request_id =
+            WalkRequests.request_id
+            WHERE WalkRequests.status = 'completed' AND WalkApplications.walker_id =
+            
 module.exports = router;
