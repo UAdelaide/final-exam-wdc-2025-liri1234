@@ -66,6 +66,12 @@
               } else {
               this.error = data.message || 'Login failed';
             }
+            } catch (e) {
+            this.error = 'Network or server error';
+          }
+        }
+      }
+    }).mount('#app');
 
 </script>
 
