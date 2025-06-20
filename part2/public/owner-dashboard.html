@@ -128,6 +128,7 @@
           }
         }
 
+        //added logout function
         async function logout() {
           try {
             const res = await fetch('/api/users/logout', {
@@ -153,7 +154,7 @@
           walks,
           message,
           error,
-          logout,
+          logout, //Made logout available to template
           submitWalkRequest
         };
       }
