@@ -99,11 +99,12 @@
           password: '',
           error: '',
           loggedIn: false,
-          dogs: [] // holds all dog data including images
+          dogs: [] // added to hold all dog data including images
       },
 
       methods: {
         //added vue method  loadDogs()
+        // Fetch dogs from backend and assign a random image to each
         async loadDogs() {
           try {
             const res = await fetch('/api/walks/dogs');
