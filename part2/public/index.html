@@ -103,7 +103,7 @@
         //added vue method  loadDogs()
         async loadDogs() {
           try {
-            const res = await fetch('/api/dogs');
+            const res = await fetch('/api/walks/dogs');
             const dogs = await res.json();
 
             //attach a random image to each dog
