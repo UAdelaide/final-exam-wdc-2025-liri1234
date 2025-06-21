@@ -13,8 +13,9 @@
     #i {
       width: 25vw;
     }
-    #app{
-         display:flex;
+
+    #app {
+      display: flex;
       flex-direction: column;
       align-items: center;
     }
@@ -25,74 +26,74 @@
 
   <div id="app" class="container py-5">
 
-     <!-- Login form -->
+    <!-- Login form -->
     <form @submit.prevent="login">
       <h2 class="mb-3 text-primary">Welcome to the Dog <br> Walking Service!</h2>
 
-        <!-- Username input -->
+      <!-- Username input -->
       <div class="mb-3">
         <label>Username</label>
         <input id="i" v-model="username" class="form-control" required />
       </div>
 
-    <!-- Password input -->
+      <!-- Password input -->
       <div class="mb-3">
         <label>Password</label>
         <input id="i" type="password" v-model="password" class="form-control" required />
       </div>
 
-       <!-- Submit button -->
+      <!-- Submit button -->
       <button type="submit" class="btn btn-primary">Log In</button>
 
       <!-- Error message -->
       <p v-if="error" class="text-danger mt-3">{{ error }}</p>
     </form>
-    
-    </div>
-    <script>
-      const { createApp } = Vue;
-      createApp({
-        data() {
-          return {
-            message: 'Welcome to the Dog Walking Service!',
-            username: '',
-            password: '',
-            error: '',
-            loggedIn: false,
-        dogs: []
-          };
-        },
 
-        methods: {
-          // Login function
-          async login() {
-            try {
-              const res = await fetch('/api/users/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: this.username, password: this.password })
-              });
+  </div>
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          message: 'Welcome to the Dog Walking Service!',
+          username: '',
+          password: '',
+          error: '',
+          loggedIn: false,
+          dogs: []
+        };
+      },
 
-              const data = await res.json();
-              if (res.ok) {
-                // Redirect based on role
-                if (data.user.role === 'owner') {
-                  window.location.href = 'owner-dashboard.html';
-                } else if (data.user.role === 'walker') {
-                  window.location.href = 'walker-dashboard.html';
-                }else {
-              this.error = 'Unknown role: ' + data.user.role;
-                }
+      methods: {
+        // Login function
+        async login() {
+          try {
+            const res = await fetch('/api/users/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username: this.username, password: this.password })
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+              // Redirect based on role
+              if (data.user.role === 'owner') {
+                window.location.href = 'owner-dashboard.html';
+              } else if (data.user.role === 'walker') {
+                window.location.href = 'walker-dashboard.html';
               } else {
-                this.error = data.error;
+                this.error = 'Unknown role: ' + data.user.role;
               }
-            } catch (err) {
-              this.error = 'Login failed.';
+            } else {
+              this.error = data.error;
             }
+          } catch (err) {
+            this.error = 'Login failed.';
           }
         }
-      }).mount('#app');
-    </script>
+      }
+    }).mount('#app');
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
