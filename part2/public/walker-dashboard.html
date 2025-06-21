@@ -108,9 +108,10 @@
         //added function to get current user
         async function getCurrentUser() {
           try {
+            const res = await fetch('/api/users/me');
             if (!res.ok) throw new Error('Failed to fetch current user');
             const me = await res.json();
-            const id = me.data.user_id;
+            const id = me.user_id;
             user.value = id;
           } catch (err) {
             error.value = err.message;
