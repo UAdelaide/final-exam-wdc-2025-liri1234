@@ -50,7 +50,9 @@
     </form>
     <!-- Dog Table -->
      <h3 class ="mb-3"> All Registered Dogs</h3>
-     <table class=" table"
+     <table class=" table table-striped" v-if="dogs.length">
+      
+     </table>
   </div>
   <script>
     const { createApp } = Vue;
