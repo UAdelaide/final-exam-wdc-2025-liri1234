@@ -107,7 +107,10 @@
 
         //added function to get current user
         async function getCurrentUser(){
-          
+          try{
+            const me = await axios.get('api/users/me');
+            c
+          }
         }
 
 
