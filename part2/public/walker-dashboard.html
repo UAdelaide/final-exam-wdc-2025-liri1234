@@ -112,7 +112,8 @@
             const id = me.data.user_id;
             user.value=id;
           }catch (err){
-            error.value=
+            error.value=err.message;
+            message.value="";
           }
         }
 
