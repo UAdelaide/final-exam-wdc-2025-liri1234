@@ -109,7 +109,9 @@
         async function getCurrentUser(){
           try{
             const me = await axios.get('api/users/me');
-            c
+            const id = me.data.user_id;
+            user.value=id;
+            
           }
         }
 
