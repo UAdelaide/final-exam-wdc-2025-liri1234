@@ -66,19 +66,19 @@
 
       methods: {
         //added vue method  loadDogs()
-        async loadDogs(){
-          try{
-            const res = await fetch ('/api/dogs');
+        async loadDogs() {
+          try {
+            const res = await fetch('/api/dogs');
             const dogs = await res.json();
 
             //attach a random image to each dog
-            for(const dog of dogs){
+            for (const dog of dogs) {
               const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
               const imgData = await imgRes.json();
-              dog.image=imgData.message;
+              dog.image = imgData.message;
             }
-            this.dogs=dogs;
-          }catch(err) {
+            this.dogs = dogs;
+          } catch (err) {
             console.error('Error loading dogs:', err);
           }
         }
@@ -109,6 +109,10 @@
             this.error = 'Login failed.';
           }
         }
+        mounted() {
+          this.loadDogs();
+        }
+
       }
     }).mount('#app');
   </script>
