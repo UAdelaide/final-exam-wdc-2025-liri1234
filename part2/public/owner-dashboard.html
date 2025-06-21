@@ -34,6 +34,8 @@
       </div>
       <div class="card-body">
         <form @submit.prevent="submitWalkRequest">
+
+          <!-- Added Dropdown of user's dogs -->
           <div class="mb-3">
             <label class="form-label">Dog</label>
             <select v-model="form.dog_id" class="form-control" required>
