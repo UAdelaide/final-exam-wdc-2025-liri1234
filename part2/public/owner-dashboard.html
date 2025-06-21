@@ -37,8 +37,8 @@
           <div class="mb-3">
             <label class="form-label">Dog</label>
             <select v-model="form.dog_id" class="form-control" required>
-            <option value="" disabled>—Choose a dog--</option>
-            <option v-for="dog in myDogs" :key="dog.dog_id" :value="dog.dog_id">{{ dog.name }}</option>
+              <option value="" disabled>—Choose a dog--</option>
+              <option v-for="dog in myDogs" :key="dog.dog_id" :value="dog.dog_id">{{ dog.name }}</option>
             </select>
 
           </div>
@@ -161,7 +161,7 @@
           }
         }
 
-        
+
 
 
         onMounted(() => {
